@@ -1,18 +1,18 @@
 // const noteTitleElement = document.querySelector('.note-title');
 const noteDescriptionContainerElement = document.querySelector('.note-description-container');
 
-const noteTitleWithPlaceHolderTextTitle = document.querySelector('.create-note-title-input');
+const inputForNameTitle = document.querySelector('.create-note-title');
 
-const noteTitleWithPlaceHolderTextCreateNewNote = document.querySelector('.create-note-input')
+const initailInput = document.querySelector('.create-note')
 
 const notepadWrapper = document.querySelector('.notepad-wrapper')
 const textNoteArea = document.querySelector('.note-content')
-const notesListElement = document.querySelector('.notes-list');
+const notesListElement = document.querySelector('.notes-list-container');
 
 let noteDescriptionValue = textNoteArea.value;
-let noteTitleElementValue = noteTitleWithPlaceHolderTextTitle.value;
+let noteTitleElementValue = inputForNameTitle.value;
 
-noteTitleWithPlaceHolderTextCreateNewNote.addEventListener('click', () => {
+initailInput.addEventListener('click', () => {
 
   if (true) {
     notepadWrapper.classList.add('border')
@@ -23,9 +23,9 @@ noteTitleWithPlaceHolderTextCreateNewNote.addEventListener('click', () => {
     // noteTitleWithPlaceHolderTextTitle.classList.toggle('hidden')
   }
 
-  if (noteTitleWithPlaceHolderTextTitle.classList.contains('hidden')) {
-    noteTitleWithPlaceHolderTextCreateNewNote.classList.toggle('hidden');
-    noteTitleWithPlaceHolderTextTitle.classList.toggle('hidden');
+  if (inputForNameTitle.classList.contains('hidden')) {
+    initailInput.classList.toggle('hidden');
+    inputForNameTitle.classList.toggle('hidden');
   }
   focusFunction()
 })
@@ -40,19 +40,19 @@ document.addEventListener('click', (event) => {
 
 const colapseNote = () => {
   noteDescriptionContainerElement.classList.add('hidden');
-  noteTitleWithPlaceHolderTextTitle.classList.add('hidden');
-  noteTitleWithPlaceHolderTextCreateNewNote.classList.remove('hidden');
+  inputForNameTitle.classList.add('hidden');
+  initailInput.classList.remove('hidden');
   notepadWrapper.classList.remove('border')
 }
 
 const createNote = (note) => {
 
- let noteDescriptionValue = textNoteArea.value;
-  let noteTitleElementValue = noteTitleWithPlaceHolderTextTitle.value;
+ let valueOfNoteTextContentElement = textNoteArea.value;
+  let valueOfNoteTitleElement = inputForNameTitle.value;
   
-  if (noteDescriptionValue || noteTitleElementValue) {
+  if (valueOfNoteTextContentElement || valueOfNoteTitleElement) {
     
-  } else if (noteDescriptionValue === '' || noteTitleElementValue === '') {
+  } else if (valueOfNoteTextContentElement === '' || valueOfNoteTitleElement === '') {
    return
   }
  
@@ -60,38 +60,36 @@ const createNote = (note) => {
     return 
   } */
 
-  console.log(noteDescriptionValue)
-  console.log(noteTitleElementValue)
-  renderNote(noteTitleElementValue,noteDescriptionValue)
+  console.log(valueOfNoteTextContentElement)
+  console.log(valueOfNoteTitleElement)
+  renderNote(valueOfNoteTitleElement,valueOfNoteTextContentElement)
   
   /* console.log(renderNote(noteDescriptionValue)) */
 }
 
 const clearInputs = () => {
   textNoteArea.value = '';
-  noteTitleWithPlaceHolderTextTitle.value = '';
+  inputForNameTitle.value = '';
 }
-
-const displayNotesList = document.querySelector('.notes-list');
 
 const focusFunction = () => {
   textNoteArea.focus();
 }
 
-const renderNote = (titleTextAreaValue, noteTextAreaValue) => {
+const renderNote = (valueOfNoteTitleElement, valueOfNoteTextContentElement) => {
   
   const noteElement = document.createElement('div');
-  const titleTextArea = document.createElement('textarea');
-  const noteTextArea = document.createElement('textarea');
+  const noteTitleElement = document.createElement('h3');
+  const noteTextContentElement = document.createElement('p');
 
   noteElement.className = 'note-element';
-  titleTextArea.className = 'title-text-area';
-  noteTextArea.className = 'note-text-area';
+  noteTitleElement.className = 'note-title';
+  noteTextContentElement.className = 'note-text-box';
 
   notesListElement.appendChild(noteElement);
-  noteElement.appendChild(titleTextArea);
-  noteElement.appendChild(noteTextArea);
+  noteElement.appendChild(noteTitleElement);
+  noteElement.appendChild(noteTextContentElement);
   
-  titleTextArea.innerHTML = titleTextAreaValue;
-  noteTextArea.innerHTML = noteTextAreaValue;
+  noteTitleElement.innerHTML = valueOfNoteTitleElement;
+  noteTextContentElement.innerHTML = valueOfNoteTextContentElement;
 }
