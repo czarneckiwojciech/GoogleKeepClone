@@ -1,0 +1,163 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  font-family: 'Roboto',arial,sans-serif;
+}
+
+:root {
+  --dark-grey:#202124;
+}
+
+.hidden{
+  display: none;
+}
+
+.border{
+  border-radius:7px; 
+  border:1px solid #5f6368;
+}
+.border{
+  border-radius:7px; 
+  border:1px solid #5f6368;
+}
+
+
+.container{
+  background-color: var(--dark-grey);
+  height: 100vh;
+}
+
+.notepad{
+  padding-top: 35px;
+  justify-content: center;
+  height: 100%;
+  
+}
+
+.notepad-wrapper{
+  margin: auto;
+  width: 600px;
+}
+
+.create-note-input{
+  height: 45px;
+  width: 100%;
+  background-color: var(--dark-grey);
+  outline:none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border-radius:7px; 
+  border:1px solid #5f6368;
+}
+
+.create-note-input::placeholder{
+  padding-left:15px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.create-note-title-input{
+  background-color: var(--dark-grey);
+  border-radius:7px; 
+  width: 90%;
+  height: 50px;
+  outline:none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #fff;
+  margin-left: 5%;
+  margin-bottom: 10px;
+}
+
+.create-note-title-input::placeholder{
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.note-description-container{
+  position: relative;
+  height: 70px;
+}
+
+.note-content{
+  height: 95%;
+  resize: none;
+  background-color: var(--dark-grey);
+  width: 95%;
+  padding-top: 10px;
+  margin-left: 5%;
+  outline:none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #fff;
+}
+
+.note-content::placeholder{
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.close-btn{
+  position: relative;
+  background-color: transparent;
+  border: none;
+  color: #dadce0;
+  cursor: pointer;
+  padding:10px 25px 10px 25px ;
+}
+
+.close-btn:hover{
+  background-color: #292a2c
+}
+
+.close-btn:active{
+  background-color: #3b3d3f
+}
+
+.note-description-container button {
+  position: absolute; 
+  top: 20px; 
+  right: 20px; 
+}
+
+.notes-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--dark-grey);
+  margin-top: 30px;
+}
+
+.note-element{
+  margin: 0 0 10px 10px;
+  height: 100px;
+  width:250px;
+  color: #fff;
+  border: 1px solid #5f6368;
+  border-radius:7px;
+}
+
+.note-element textarea{
+  background-color: transparent;
+  color: #fff;
+  width: 100%;
+  resize: none;
+  border: none;
+  margin-left: 15px;
+  
+}
+.note-element textarea:focus{
+  outline:none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.title-text-area{
+  margin-top: 15px;
+}
+
+.note-text-area{
+  min-height: 60%;
+}
