@@ -129,7 +129,9 @@
 }
 
 .note-element{
-  margin: 0 10px 10px 10px;
+  position: relative;
+  margin-right:15px ;
+  margin-bottom:15px;
   min-height: 100px;
   width: 250px;
   color: #fff;
@@ -138,7 +140,25 @@
   white-space:pre-line;
   word-wrap: break-word;
   padding: 15px;
-  overflow-x: auto;
+}
+
+.note-element:hover{
+  border: 1px solid rgb(148, 147, 147);
+   transition-delay: .1s;
+}
+
+.trash-btn{
+  display: none;
+  font-size: 20px;
+  position: absolute;
+  cursor: pointer;
+  top: -10px; 
+  left:-10px;
+}
+
+
+.note-element:hover .trash-btn{
+  display: inline-block;
 }
 
 .note-title{
