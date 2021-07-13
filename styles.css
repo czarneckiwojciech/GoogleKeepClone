@@ -154,6 +154,10 @@
   cursor: pointer;
   top: -10px; 
   left:-10px;
+  animation-name: fadeIn;
+  animation-duration: 600ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 
@@ -164,6 +168,19 @@
 .note-title{
   margin-bottom: 8px;
 }
+
+
+@keyframes fadeIn{
+  0%{
+    opacity:0;
+    
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+
 
 
 @media (max-width: 650px){

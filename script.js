@@ -13,9 +13,8 @@ let noteTitleElementValue = inputForNameTitle.value;
 
 initailInput.addEventListener('click', () => {
 
-  if (true) {
-    notepadWrapper.classList.add('border')
-  }
+  notepadWrapper.classList.add('border')
+  
   
   if (noteDescriptionContainerElement.classList.contains('hidden')) {
     noteDescriptionContainerElement.classList.toggle('hidden')
@@ -47,7 +46,7 @@ const focusFunction = () => {
 
 const createNoteTemplate = (note) => {
   const noteTemplate =
-    `<div id="noteElement" class="note-element">
+    `<div id="${note.id}" class="note-element">
       <h3 class="note-title">${note.title}</h3>
       <p class="note-text-box">${note.text}</p>
       <i id="${note.id}" class="fas fa-trash trash-btn"></i> 
@@ -91,6 +90,7 @@ const renderNotes = () => {
   })
   notesListElement.innerHTML = notesTemplates;
   addRemoveListenersToBtns()
+  initialEditNote()
 }
 
 document.addEventListener('click', (event) => {
@@ -106,13 +106,38 @@ document.addEventListener('click', (event) => {
     renderNotes()
     colapseNote()
     clearInputs()
+
     }
   }
 })
 
+const initialEditNote = () => {
+  const noteElements = document.querySelectorAll('.note-element')
 
-/* const noteElement = document.getElementById('noteElement') ;
+  noteElements.forEach((editNote) => {
+    editNote.addEventListener('click', ($event) => {
 
-noteElement.addEventListener('click', () => {
-  console.log('działa hover?')
-}) */
+      const editedNoteId = $event.target.closest('.note-element').attributes.id.nodeValue;
+      console.dir(editedNoteId)
+
+      const editedNoteContainer = document.querySelector('.edited-note-container');
+
+      editedNoteContainer.classList.toggle('hidden');
+      const editedTitle = document.querySelector('.edited-title');
+      const editedNoteText = document.querySelector('.edited-note-text')
+      
+      const foundNotes = allNotesLists.find((note) => {
+        return editedNoteId == note.id
+        
+      })
+      editedTitle.value = foundNotes.title;
+      editedNoteText.value = foundNotes.text;
+    })
+  })
+}
+
+
+/* zrobić bez templatki z creatElement
+  oscylować modala z przyciskami save i przycisk anuluj */
+
+
